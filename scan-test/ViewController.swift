@@ -6,6 +6,9 @@
 //  Copyright © 2017年 Peter. All rights reserved.
 //
 
+// Reference
+// https://saitoxu.io/2016/11/07/how-to-use-opencv-in-swift-2.html
+
 import UIKit
 import AVFoundation
 
@@ -85,7 +88,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                        from connection: AVCaptureConnection!) {
         DispatchQueue.main.async(execute: {
             let image: UIImage = CameraUtil.imageFromSampleBuffer(buffer: sampleBuffer)
-            self.imageView.image = image;
+            
+            self.imageView.image = OpenCVWrapper.convert(image);
         })
     }
     
