@@ -80,6 +80,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         return true
     }
     
+    
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
+                       from connection: AVCaptureConnection!) {
+        DispatchQueue.main.async(execute: {
+            let image: UIImage = CameraUtil.imageFromSampleBuffer(buffer: sampleBuffer)
+            self.imageView.image = image;
+        })
+    }
+    
     @IBAction func startTesting(){
         if setupCamera() {
             session.startRunning()

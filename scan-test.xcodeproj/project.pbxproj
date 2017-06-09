@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D095C9571EEA827E004A84B8 /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095C9561EEA827E004A84B8 /* CameraUtil.swift */; };
 		D0AA9F371EE2D15800EB2A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA9F361EE2D15800EB2A5C /* AppDelegate.swift */; };
 		D0AA9F391EE2D15800EB2A5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA9F381EE2D15800EB2A5C /* ViewController.swift */; };
 		D0AA9F3C1EE2D15800EB2A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0AA9F3A1EE2D15800EB2A5C /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D095C9561EEA827E004A84B8 /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
 		D0AA9F331EE2D15800EB2A5C /* scan-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "scan-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AA9F361EE2D15800EB2A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0AA9F381EE2D15800EB2A5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				D0AA9F421EE2D15800EB2A5C /* Info.plist */,
 				D0B29CAD1EE3A47F007A64F2 /* ScanViewController.swift */,
 				D0C5FE2E1EE6A7AC00AA8F74 /* scan-test-Bridging-Header.h */,
+				D095C9561EEA827E004A84B8 /* CameraUtil.swift */,
 			);
 			path = "scan-test";
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				D0AA9F371EE2D15800EB2A5C /* AppDelegate.swift in Sources */,
 				D0C5FE311EE6A7AC00AA8F74 /* OpenCVWrapper.mm in Sources */,
 				D0B29CAE1EE3A47F007A64F2 /* ScanViewController.swift in Sources */,
+				D095C9571EEA827E004A84B8 /* CameraUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
