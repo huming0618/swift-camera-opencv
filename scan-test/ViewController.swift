@@ -18,7 +18,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     var videoCaptureDevice: AVCaptureDevice!
     var output: AVCaptureVideoDataOutput!
     
-    //var previewLayer: AVCaptureVideoPreviewLayer!
+    var previewLayer: AVCaptureVideoPreviewLayer!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -60,6 +60,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             output.setSampleBufferDelegate(self, queue: queue)
             output.alwaysDiscardsLateVideoFrames = true
             
+            session.addOutput(output)
             for connection in output.connections {
                 if let conn = connection as? AVCaptureConnection {
                     if conn.isVideoOrientationSupported {
@@ -79,23 +80,36 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 //        previewLayer?.frame = view.layer.bounds
 //        view.layer.addSublayer(previewLayer!)
         
-        
+        print("Camera Setup Done!")
         return true
     }
     
+//    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+//        print("captured \(sampleBuffer)")
+//    }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
-                       from connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        print("didDrop Frame")
+    }
+    
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        print("Frame")
         DispatchQueue.main.async(execute: {
-            let image: UIImage = CameraUtil.imageFromSampleBuffer(buffer: sampleBuffer)
-            
-            self.imageView.image = OpenCVWrapper.convert(image);
+            if !self.videoCaptureDevice.isAdjustingFocus {
+                let image: UIImage = CameraUtil.imageFromSampleBuffer(buffer: sampleBuffer)
+                //self.imageView.image = image
+                self.imageView.image = OpenCVWrapper.convert(image);
+            }
+
         })
     }
     
+
     @IBAction func startTesting(){
         if setupCamera() {
+            print("...Start the camera")
             session.startRunning()
+            print("...Started")
         }
     }
     

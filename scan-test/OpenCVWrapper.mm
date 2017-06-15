@@ -27,10 +27,10 @@ using namespace std;
     cv::Mat gray;
     cv::cvtColor(mat, gray, CV_RGB2GRAY);
     
-    cv::Mat bin;
-    cv::threshold(gray, bin, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
+//    cv::Mat bin;
+//    cv::threshold(gray, bin, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
     
-    UIImage *binImg = MatToUIImage(bin);
+    UIImage *binImg = MatToUIImage(gray);
     return binImg;
 }
 @end
